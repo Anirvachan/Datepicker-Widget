@@ -1,0 +1,94 @@
+<!doctype HTML>
+<html>
+	<head>
+		<title>Datepicker widget</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="moment.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+
+	</head>
+	<body ng-app="customDatepicker" style="font-family:Verdana;" ng-cloak>
+		<div class="container-fluid" style="background-color:white">
+			<div class="col-md-4 col-sm-4"></div>
+			<div class="col-md-4 col-sm-4" ng-controller="datepickerController">
+				{{dateObject | date: 'mediumDate' }}
+				<div id="datepicker-div" style="margin-top:20px">
+					<span class="datebox-merged">
+						<input ng-model="month" class="datestyle" type="number" placeholder="MM" min="1" max="12"> / 
+						<input ng-model="date" class="datestyle" type="number"placeholder="DD" min="1" max="31"> / 
+						<input ng-model="year" class="datestyle-yy" type="number" placeholder="YYYY" min="1" max="3000">
+						<span class="reset-button" ng-click="resetDate()">&times</span>
+						<span class="glyphicon glyphicon-triangle-bottom datebox-triangle" ng-click="togglePicker()"></span>
+					</span>
+					<span></span>
+			
+					<div class="date-display-container" ng-class="{'slide-in' : pickerShown, 'slide-out' :!pickerShown}">
+						<div class="date-display">
+							{{dateObject | date: "MMMM" | uppercase}} {{dateObject | date: "yyyy"}} 
+							<span class="glyphicon glyphicon-triangle-bottom mp-triangle" ng-show="!monthPickerShown" ng-click="monthPicker()"></span>
+							<span class="glyphicon glyphicon-triangle-top mp-triangle" ng-show="monthPickerShown" ng-click="monthPicker()"></span>
+							<span class="pull-right" style="margin-right:10px">
+								<span class="glyphicon glyphicon-chevron-left month-chevron-left" ng-click="decreaseMonth()"></span>
+								<span class="glyphicon glyphicon-chevron-right month-chevron-right" ng-click="increaseMonth()"></span>
+							</span>
+							
+						</div>
+						<div style="position:relative">
+						<div class="text-muted month-container" ng-class="{'slide-in' : monthPickerShown, 'slide-out' : !monthPickerShown}" ng-show="monthPickerShown">
+							<div style="margin-top:3px;">
+								<span style="margin-left: 25px" ng-click="chooseMonth(1)" ng-class="{'month-select' : month==1}">January</span>
+								<span style="margin-left: 22px" ng-click="chooseMonth(2)" ng-class="{'month-select' : month==2}">February</span>
+								<span style="margin-left: 20px" ng-click="chooseMonth(3)" ng-class="{'month-select' : month==3}">March</span>
+							</div>
+							<div style="margin-top:3px">
+								<span style="margin-left:25px" ng-click="chooseMonth(4)" ng-class="{'month-select' : month==4}">April</span>
+								<span style="margin-left:45px" ng-click="chooseMonth(5)" ng-class="{'month-select' : month==5}">May</span>
+								<span style="margin-left:58px" ng-click="chooseMonth(6)" ng-class="{'month-select' : month==6}">June</span>
+							</div>
+							<div style="margin-top:3px; margin-bottom:4px;">
+								<span style="margin-left:25px" ng-click="chooseMonth(7)" ng-class="{'month-select' : month==7}">July</span>
+								<span style="margin-left:50px" ng-click="chooseMonth(8)" ng-class="{'month-select' : month==8}">August</span>
+								<span style="margin-left:37px" ng-click="chooseMonth(9)" ng-class="{'month-select' : month==9}">September</span>
+							</div>
+							<div style="margin-top:3px; margin-bottom:4px;">
+								<span style="margin-left:25px" ng-click="chooseMonth(10)" ng-class="{'month-select' : month==10}">October</span>
+								<span style="margin-left:22px" ng-click="chooseMonth(11)" ng-class="{'month-select' : month==11}">November</span>
+								<span style="margin-left:16px" ng-click="chooseMonth(12)" ng-class="{'month-select' : month==12}">December</span>
+							</div>
+						</div>	
+						<table style="position:absolute">
+							<thead class="theader-main">
+								<tr>
+								<th class="thead-style sunday-header">S</th>
+								<th class="thead-style monday-header">M</th>
+								<th class="thead-style tuesday-header">T</th>
+								<th class="thead-style wednesday-header">W</th>
+								<th class="thead-style thursday-header">T</th>
+								<th class="thead-style friday-header">F</th>
+								<th class="thead-style saturday-header">S</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr style="width:100%" ng-repeat="(key, value) in dateMatrix">
+									<td ng-click="selectDate(dateVal)" class="date-table-styles" ng-repeat ="dateVal in value track by $index"><span ng-hide="dateVal==0" class="text-muted" ng-class="{'current-date' : dateVal==date}">{{dateVal}}</span>
+										<span ng-show="dateVal==0" class="glyphicon glyphicon-star no-dates"></span></td>
+								</tr>
+							</tbody>
+						</table>	
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-4"></div>
+		</div>
+		<script type="text/javascript">
+		</script>
+		<script src="scripts/script.js"></script>
+	</body>
+</html>

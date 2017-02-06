@@ -1,0 +1,217 @@
+			.hide {
+				visibility: hidden;
+			}
+
+			.datebox-merged {
+				border:1px solid black;
+				padding:5px; 
+				border-radius:5px; 
+				background-color:#EFF0F1;
+			}
+
+			.datestyle {
+				border:0px;
+				padding-left:3px;
+				width:40px;
+				outline:none;
+				background-color:#EFF0F1
+			}
+
+			.datestyle-yy {
+				border:0px;
+				width:50px;
+				outline:none;
+				background-color:#EFF0F1
+			}
+
+			.date-selected:focus {
+				border-radius: 50%;
+				background-color: #4285F4; 
+			}
+
+			.date-selected:hover {
+				border-radius: 50%;
+				background-color: yellow;
+				color:black;
+			}
+
+			.reset-button {
+				background-color:gray; 
+				color:white; 
+				border-radius:50%; 
+				padding-left:4px; 
+				padding-right:4px; 
+				cursor:pointer;
+			}
+			.datebox-triangle {
+				color:gray; 
+				margin-left:5px; 
+				font-size:0.8em; 
+				cursor:pointer;
+			}
+
+			.current-date {
+				padding-left: 5px;
+				padding-right: 4px;
+				padding-top:3px;
+				padding-bottom: 3px;
+				background-color: #4285F4;
+				color: white;
+				border-radius:20%;
+			}
+
+			.date-display-container {
+				width: 320px; 
+				height: 230px; 
+				border: 1px solid black; 
+				margin-top:5px;
+			}
+
+			.date-display {
+				height:22%; 
+				border-bottom: 1px solid black;
+				padding-left:15px;
+				padding-top:10px; 
+				background-color:#4285F4;
+				color:white; 
+				padding-bottom:5px;
+			}
+
+			.slide-in {
+				overflow-y: hidden;
+
+				transition-property: all;
+				transition-duration: 0.5s;
+				transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+				max-height: 230px; /* approximate max height */
+
+			}
+
+			th {
+				text-align: center;
+				vertical-align: middle;
+			}
+
+			.slide-out {
+				overflow-y: hidden;
+				transition-property: all;
+				transition-duration: 0.1s;
+				transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+				max-height:0px;
+				visibility:hidden;
+			}
+
+			.mp-triangle {
+				color:white; 
+				margin-left:1px; 
+				font-size:0.8em; 
+				cursor:pointer;
+			}
+
+			.month-chevron-left {
+				background-color:#02B6DF;
+				border-radius:4px;
+				color:white;
+				padding:3px;
+				opacity:0.4; 
+				cursor:pointer;
+			}
+
+			.month-chevron-right {
+				background-color:#02B6DF;
+				border-radius:4px;
+				color:white;
+				padding:3px;
+				opacity:0.4; 
+				cursor: pointer;
+			}
+
+			.month-select {
+				color: #4285F4;
+				font-weight: bold;
+			}
+
+			.month-container {
+				margin:0px; 
+				z-index:3; 
+				float:left; 
+				position:absolute; 
+				opacity:1; 
+				background-color:white; 
+				border: 1px solid #4285F4; 
+				border-radius: 5px;
+				width:100%;
+			}
+
+			.month-container > div {
+				margin-top:3px;
+			}
+
+			.month-container div span {
+				width: calc(100%/ 3);
+				cursor: pointer;
+			}
+
+			.theader-main {
+				height:13%; 
+				border-bottom: 1px solid black; 
+				padding-top:2px; 
+				color:white; 
+				background-color:#4285F4;
+			}
+
+			.thead-style {
+				width: 14%; 
+				height:100%; 
+				border-right:1px solid black; 
+				padding-left:17px; 
+				padding-right:17px; 
+				padding-bottom:3px;
+			}
+
+			.date-table-styles {
+				height: 25px;
+				text-align:center; 
+				vertical-align:middle; 
+				padding-left:17px; 
+				cursor:pointer;
+			}
+
+			.sunday-header {
+				padding-left:17px; 
+				padding-right:17px
+			}
+
+			.monday-header {
+				padding-left:17px; 
+				padding-right:15px;
+			}
+
+			.tuesday-header {
+				padding-left:17px; 
+				padding-right:17px;
+			}
+
+			.wednesday-header {
+				padding-left:16px; 
+				padding-right:13px;
+			}
+
+			.thursday-header {
+				padding-left:17px; 
+				padding-right:17px;
+			}
+
+			.friday-header {
+				padding-left:17px; 
+				padding-right:18px;
+			}
+
+			.saturday-header {
+				padding-left:17px; 
+				padding-right:18px;
+			}
+
+			.no-dates {
+				color:orange;
+			}
